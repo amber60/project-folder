@@ -6,12 +6,14 @@ import tiktoken
 from langchain_chroma import Chroma
 from langchain_classic.chains import RetrievalQA
 from langchain_core.prompts import PromptTemplate
-
-
-load_dotenv(find_dotenv())
+import streamlit as st
 
 # Pass the API Key to the OpenAI Client
-client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
+if load_dotenv(find_dotenv()):
+   # for local development
+   OPENAI_KEY = os.getenv('OPENAI_API_KEY')
+else:
+   OPENAI_KEY = st.secrets['OPENAI_API_KEY']
 embeddings_model = OpenAIEmbeddings(model='text-embedding-3-small')
 llm = ChatOpenAI(model='gpt-4o-mini', temperature=0, seed=42)
 
