@@ -14,6 +14,8 @@ if load_dotenv(find_dotenv()):
    OPENAI_KEY = os.getenv('OPENAI_API_KEY')
 else:
    OPENAI_KEY = st.secrets['OPENAI_API_KEY']
+
+client = OpenAI(OPENAI_KEY)
 embeddings_model = OpenAIEmbeddings(model='text-embedding-3-small')
 llm = ChatOpenAI(model='gpt-4o-mini', temperature=0, seed=42)
 
