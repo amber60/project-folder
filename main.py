@@ -14,6 +14,8 @@ st.set_page_config(
     page_title="SkillsFuture Course Helper"
 )
 
+# st.sidebar.success("More Information")
+
 # endregion <--------- Streamlit App Configuration --------->
 
 st.title("SkillsFuture Helper📚🏫")
@@ -24,8 +26,7 @@ form.subheader("Enquiries")
 user_prompt = (
     form.text_area(
         """
-        Enter your enquiries here, and we will try our best to help!\n
-        Note: Records are accurate as of 10 November 2025
+        Enter your enquiries here, and we will try our best to help!
         """, 
         height=200
         )
